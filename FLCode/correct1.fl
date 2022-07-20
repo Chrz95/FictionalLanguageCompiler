@@ -1,0 +1,43 @@
+program example1;
+    
+begin
+   
+	type
+        string = array of char;
+        vector = array [3][2][1] of integer;	 
+
+    var sequence1, sequence2, outcome : string;
+    	 i, j: integer;
+    	 x, y: integer;
+         test,test1 : array [2][10][30] of char;
+
+   procedure check (i : integer; j: integer);        
+
+   		sequence1 := "10000" ;
+		sequence2 := "00111" ;	     	
+
+        x := readInteger();
+        y := readInteger();      
+
+    begin
+	    if x > y then 
+		    begin
+		    	for i:=x to y do
+			    	begin
+				    label1 : outcome := (array of char) ((integer) sequence1 + (integer) sequence2);
+				    outcome := (string) ((integer) sequence1 + (integer) sequence2);
+				    label2 : writeString("the result is: ");
+				        writeString(outcome);
+				    end; 
+			end;
+		else 
+			begin	     
+		        repeat goto label;
+		        until y<x
+		    end;
+
+		     label : check(i,j); 
+	end;
+
+ 
+end.

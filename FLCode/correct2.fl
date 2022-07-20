@@ -1,0 +1,74 @@
+(*  Example 2 *)
+
+program example2 ;
+
+var Diakr, solution1 , solution2 : real; 
+var a, b,c : real; 
+	choice : char ; 
+
+function type_of_solutions (a: real ; b: real ; c: real ): boolean;
+		
+    begin
+        Diakr := b*b - 4*a*c ;
+        if Diakr >= 0 then 
+        	result := true ;
+        else result := false ;
+     end;
+
+procedure calculate (a: real ; b: real ; c: real) ;
+
+var Diakr, part1 , part2  : real;
+		
+    begin
+
+        Diakr := b*b - 4*a*c ;
+        if Diakr >= 0 then 
+	        begin
+	        	solution1 := (-b*b + Diakr/(a*a));
+	           	writeString ("The first solution is :  ");
+	           	writeReal(solution1);
+	           	writeString ("\n");	            
+	            solution2 := (-b*b - Diakr/(a*a));
+	            writeString ("The second solution is :  ");
+	            writeReal(solution2);
+	            writeString ("\n");
+	       		
+	       	end;
+        else 
+	        begin
+		        	part1 := (-b*b)/(a*a);
+		        	part2 := Diakr/a*a;
+		           	writeString ("The first solution is :  ");
+		            writeReal(part1);
+		            writeString ("+ j");
+		            writeReal(part2);
+		            writeString ("\n");
+
+		            part1 := (-b*b)/(a*a);
+		        	part2 := Diakr/a*a;
+		           	writeString ("The second solution is :  ");
+		            writeReal(part1);
+		            writeString ("+ j");
+		            writeReal(part2);
+		            writeString ("\n");
+		    end; 
+     end;  		
+
+begin
+
+writeString ("Enter x^2 factor : ");
+a := readReal();
+writeString ("Enter x factor : ");
+b := readReal();
+writeString ("Enter x^0 factor : ");
+c := readReal();
+
+if type_of_solutions (a,b,c) then writeString ("The solutions are real!\n");
+else writeString ("The solutions are complex!\n");
+
+writeString ("Calculation :");
+writeString ("\n");
+calculate(a,b,c) ;
+
+end.
+
